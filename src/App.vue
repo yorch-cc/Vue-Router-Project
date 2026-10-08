@@ -1,47 +1,32 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { RouterLink, RouterView } from 'vue-router'
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <nav class="navbar bg-light">
+    <div class="">
+      <router-link class="navbar-brand" to="/">
+        <img
+          src="@/assets/logo.svg"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+        PokeAPI
+      </router-link>
+      <div>
+      <router-link class="btn btn-outline-primary me-2" to="/">Home</router-link>
+      <router-link to="/pokemons">Pokemons</router-link>
+      </div>
     </div>
-  </header>
+  </nav>
+  
+  <div class="container">
 
-  <main>
-    <TheWelcome />
-  </main>
+
+  <RouterView />
+    </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
