@@ -11,7 +11,8 @@ getData('https://pokeapi.co/api/v2/pokemon')
 </script>
 <template>
     <h1>Pokemons</h1>
-    <p>Cargando informacion</p>
+    <p v-if="loading">Cargando informacion</p>
+    <p v-if="data"></p>
     <ul>
         <li v-for="poke in data.results" >
             <router-link :to="`/pokemons/${poke.name}`">{{poke.name }}</router-link>
