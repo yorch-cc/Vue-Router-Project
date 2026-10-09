@@ -5,7 +5,7 @@ import{useGetData} from '@/composables/getData'
 const route = useRoute()
 const router = useRouter()
 
-const {getData, data, loading} = useGetData()
+const {getData, data, loading, errorData} = useGetData()
 
 
 
@@ -22,10 +22,10 @@ getData(`https://pokeapi.co/api/v2/pokemon/${route.params.name}`)
 
 <template>
      <p v-if="loading">Cargando informacion</p>
+     <div class="alert alert-danger mt-2" v-if="errorData">No existe el pokemon</div>
     <div v-if="data">
         <img :src="data.sprites?.front_default"/>
         <h1>Poke name: {{ $route.params.name }}</h1>
-    </div>
-    <h1 v-else>No existe el pokemon</h1>
+    </div>  
     <button @click="back" class="btn btn-outline-primary">Volver</button>
 </template>
