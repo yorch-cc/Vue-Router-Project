@@ -13,10 +13,13 @@ getData('https://pokeapi.co/api/v2/pokemon')
     <h1>Pokemons</h1>
     <p v-if="loading">Cargando informacion</p>
     <div class="alert alert-danger mt-2" v-if="errorData">{{ errorData }}</div>
-    <p v-if="data"></p>
+    <div v-if="data">
     <ul>
         <li v-for="poke in data.results" >
             <router-link :to="`/pokemons/${poke.name}`">{{poke.name }}</router-link>
         </li>
     </ul>
+    <button :disabled="!data.previous" class="btn btn-warning me-2" @click="getData(data.previous)">Previous</button>
+    <button class="btn btn-success" @click="getData(data.next)">Next</button>
+    </div>
 </template>
