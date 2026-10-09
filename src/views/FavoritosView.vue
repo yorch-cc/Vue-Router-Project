@@ -7,6 +7,8 @@ const useFavoritos = useFavoritosStore()
 
 const {favoritos} = storeToRefs(useFavoritos)
 
+const {remove} = useFavoritos
+
 
 
 </script>
@@ -19,6 +21,13 @@ const {favoritos} = storeToRefs(useFavoritos)
         v-for="poke in favoritos"
         :key="poke.id"
         >
-       {{ poke.name }}</li>
+        <div>
+       {{ poke.name }}
+    </div>
+    <div>
+        <button class="btn btn-sm btn-danger" @click="remove(poke.id)">Eliminar</button>
+    </div>
+    </li>
+
     </ul>
 </template>
