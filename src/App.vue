@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <nav class="navbar bg-light">
+  <nav class="navbar navbar-dark bg-dark">
     <div class="">
       <router-link class="navbar-brand" to="/">
         <img
@@ -23,7 +23,7 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
   </nav>
   
-  <div class="container">
+  <div class="container text-center">
 
 
   <RouterView />
